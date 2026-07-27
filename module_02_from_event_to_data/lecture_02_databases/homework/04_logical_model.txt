@@ -1,0 +1,51 @@
+Логическая модель данных (текстовое описание)
+
+1. Сущность "customers" (покупатели)
+   Атрибуты: customer_id (PK), first_name, middle_initial, last_name, city_id (FK), address.
+   Связи:
+      - с cities: M:1 (много покупателей могут жить в одном городе).
+      - с sales: 1:M (один покупатель может совершить много покупок).
+
+2. Сущность "categories" (категории товаров)
+   Атрибуты: category_id (PK), category_name.
+   Связи:
+      - с products: 1:M (одна категория объединяет много товаров).
+
+3. Сущность "countries" (страны)
+   Атрибуты: country_id (PK), country_name, country_code.
+   Связи:
+      - с cities: 1:M (в одной стране много городов).
+
+4. Сущность "cities" (города) – структура ожидается: city_id (PK), city_name, country_id (FK).
+   Атрибуты: city_id (PK), city_name, country_id (FK).
+   Связи:
+      - с countries: M:1 (много городов принадлежат одной стране).
+      - с customers: 1:M (в одном городе живёт много покупателей).
+      - с employees: 1:M (в одном городе живёт много сотрудников).
+      - с shops: 1:M (в одном городе может быть много магазинов).
+
+5. Сущность "employees" (сотрудники)
+   Атрибуты: employee_id (PK), first_name, middle_initial, last_name, birth_date, gender, city_id (FK), shop_id (FK), hire_date.
+   Связи:
+      - с cities: M:1 (много сотрудников живут в одном городе).
+      - с shops: M:1 (много сотрудников работают в одном магазине).
+      - с sales: 1:M (один сотрудник может оформить много продаж).
+
+6. Сущность "products" (товары)
+   Атрибуты: product_id (PK), product_name, price, category_id (FK), class, modify_timestamp, resistant, is_allergic, vitality_days.
+   Связи:
+      - с categories: M:1 (много товаров относятся к одной категории).
+      - с sales: 1:M (один товар может участвовать во многих продажах).
+
+7. Сущность "sales" (продажи)
+   Атрибуты: sales_id (PK), employee_id (FK), customer_id (FK), product_id (FK), quantity, discount, total_price, sales_timestamp, transaction_number.
+   Связи:
+      - с employees: M:1 (много продаж может оформить один сотрудник).
+      - с customers: M:1 (много продаж может совершить один покупатель).
+      - с products: M:1 (много продаж могут содержать один и тот же товар).
+
+8. Сущность "shops" (магазины)
+   Атрибуты: shop_id (PK), city_id (FK), address.
+   Связи:
+      - с cities: M:1 (много магазинов может находиться в одном городе).
+      - с employees: 1:M (в одном магазине работает много сотрудников).

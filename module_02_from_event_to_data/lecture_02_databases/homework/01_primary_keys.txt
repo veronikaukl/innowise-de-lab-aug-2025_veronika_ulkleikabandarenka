@@ -1,0 +1,14 @@
+ Сущности и их первичные ключи (PK):
+
+customers   -> customer_id
+categories  -> category_id
+countries   -> country_id
+employees   -> employee_id
+products    -> product_id
+sales       -> sales_id
+shops       -> shop_id
+cities      -> city_id (предположительно)
+
+Обоснование для customers и categories:
+- customers: столбец customer_id содержит целочисленные уникальные значения, не может быть пустым (NULL) и однозначно определяет каждого покупателя.
+- categories: столбец category_id уникален для каждой категории, не содержит пропусков, поэтому может быть первичным ключом.

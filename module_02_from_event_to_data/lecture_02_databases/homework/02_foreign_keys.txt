@@ -1,0 +1,13 @@
+ Внешние ключи (FK):
+
+customers.city_id       -> cities.city_id
+employees.city_id       -> cities.city_id
+employees.shop_id       -> shops.shop_id
+products.category_id    -> categories.category_id
+sales.employee_id       -> employees.employee_id
+sales.customer_id       -> customers.customer_id
+sales.product_id        -> products.product_id
+shops.city_id           -> cities.city_id
+cities.country_id       -> countries.country_id   (если поле есть)
+
+Примечание: в sales нет FK на shops напрямую, но связь "продажа совершена в магазине" может быть выражена через сотрудника (employee.shop_id) или отсутствовать вовсе – зависит от бизнес-логики. В этом задании используем только явные FK.
