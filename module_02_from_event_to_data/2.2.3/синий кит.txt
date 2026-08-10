@@ -1,0 +1,15 @@
+┌──────────────┐       ┌──────────────┐       ┌──────────────┐
+│   PRODUCTS   │       │    SALES     │       │  CATEGORIES  │
+├──────────────┤       ├──────────────┤       ├──────────────┤
+│ product_id PK│───o──│ product_id FK│       │ category_idPK│
+│ product_name │       │ sales_id PK  │       │ category_name│
+│ category_idFK│──┐    │ quantity     │       └──────────────┘
+│ price        │  │    │ price        │              │
+│ is_active    │  │    │ discount     │              │
+└──────────────┘  │    │ sale_date    │              │
+                  │    └──────────────┘              │
+                  └──────────┼───────────────────────┘
+                             │
+                        ┌────▼───────┐
+                        │ CATEGORIES │
+                        └────────────┘
